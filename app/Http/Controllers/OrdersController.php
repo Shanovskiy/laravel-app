@@ -20,8 +20,16 @@ class OrdersController extends Controller
     {
         $carId = request()->post('car_id');
         $userId = Auth::user()->getAuthIdentifier();
+        $user = User::query()->find($userId);
         $balance =User::query()->find($userId)->balance;
-        $priceWithDiscount =Car::query()->find($carId)->getPriceWithDiscount();
+        $car = Car::query()->find($carId);
+        $price =Car::query()->find($carId)->price;
+        if ($user->discount +$car->discount<100){
+            $priceWithDiscount = $price -($price*($user->discount + $car->discount)/100);
+        }
+        else{
+            $priceWithDiscount =$price -($price*99/100);
+        }
         if($balance>$priceWithDiscount){
             $array =["car_id"=>$carId,"user_id"=>$userId,"price"=>$priceWithDiscount];
             $order = new Order($array);

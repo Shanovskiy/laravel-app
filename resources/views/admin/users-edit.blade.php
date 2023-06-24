@@ -32,6 +32,14 @@
         </div>
         <div class="row g-3 align-items-center">
             <div class="col-auto">
+                <label for="discount" class="form-label">Discount</label>
+            </div>
+            <div class="col-auto">
+                <input name="discount" type="text" class="form-control" id="discount" value="{{$user["discount"]}}">
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
                 <label for="password" class="col-form-label">Password</label>
             </div>
             <div class="col-auto">

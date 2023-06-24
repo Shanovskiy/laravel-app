@@ -47,6 +47,15 @@
                         <li>
                             <a class="nav-link" href="{{route("balance")}}">Мой Счёт</a>
                         </li>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Аукцион
+                            </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{route("auction")}}">Аукцион</a></li>
+                            <li><a class="dropdown-item" href="{{route("users-auction-orders")}}">Список выиграшей</a></li>
+                        </ul>
+                        </div>
                         <li>
                             <form method="POST" id="logout-form" action="{{ route('logout') }}">
                                 @csrf

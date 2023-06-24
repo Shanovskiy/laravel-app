@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Favorite;
+use App\Models\User;
 use App\ViewModels\CarViewModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -40,9 +41,10 @@ class HomeController extends Controller
         }
         if(Auth::user()){
             $userId = Auth::user()->getAuthIdentifier();
+            $user = User::query()->find($userId);
             $favorites =Favorite::query()->where("user_id",$userId)->get();
 //            $this->carsAndFavoritesToCarViewModels($cars,$favorites);
-            return view("main")->with("cars",$cars)->with("brands",$brands)->with("models",$models)->with("favorites",$favorites);
+            return view("main")->with("cars",$cars)->with("brands",$brands)->with("models",$models)->with("favorites",$favorites)->with("user",$user);
         }
         return view("main")->with("cars",$cars)->with("brands",$brands)->with("models",$models);
     }

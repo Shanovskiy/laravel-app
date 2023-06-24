@@ -35,9 +35,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route("refund-requests")}}">Возвраты</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route("admin-auction")}}">Аукцион</a>
-                    </li>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Аукцион
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{route("admin-auction")}}">Создать лот</a></li>
+                            <li><a class="dropdown-item" href="{{route("view-auction")}}">Аукцион</a></li>
+                        </ul>
+                    </div>
                         <li>
                             <form method="POST" id="logout-form" action="{{ route('logout') }}">
                                 @csrf

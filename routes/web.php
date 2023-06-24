@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminAuctionController;
 use App\Http\Controllers\AdminCarsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\BalanceUsersController;
 use App\Http\Controllers\BannedController;
 use App\Http\Controllers\FavoritesController;
@@ -66,6 +67,10 @@ Route::middleware(['auth','banned'])->group(function () {
     Route::get("/favorites",[FavoritesController::class,"viewFavorites"])->name("favorites");
     Route::post("/new-favorite",[FavoritesController::class,"saveNewFavorite"])->name("save-new-favorite");
     Route::post("/delete-favorite",[FavoritesController::class,"deleteFavorite"])->name("delete-favorite");
+    Route::get("/auction",[AuctionController::class,"auctionView"])->name("auction");
+    Route::put("/auction",[AuctionController::class,"newBet"])->name("new-bet");
+    Route::get("/user-auction-orders",[AuctionController::class,"userAuctionOrdersView"])->name("users-auction-orders");
+
 
 });
 Route::middleware('role')->group(function () {
@@ -85,6 +90,8 @@ Route::middleware('role')->group(function () {
     Route::get('/auctionAdmin',[AdminAuctionController::class,"auctionView"])->name("admin-auction");
     Route::get("/create-a-lot/{id}",[AdminAuctionController::class,"createALotAuction"])->name("create-a-lot");
     Route::post("/create-a-lot",[AdminAuctionController::class,"putUpForAuction"])->name("putUpForAuction");
+    Route::get("/view-auction",[AdminAuctionController::class,"viewAuction"])->name("view-auction");
+    Route::put("/view-auction",[AdminAuctionController::class,"endAuction"])->name("end-auction");
 
 });
 Route::get("/banned",[BannedController::class,"bannedView"])->name("banned");

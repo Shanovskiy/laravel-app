@@ -15,6 +15,22 @@
                         <p class="card-text">Год:{{$car->year}}</p>
                         <p class="card-text">Цвет: {{$car->color}}</p>
                         <p class="card-text">{{$car->description}}</p>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <label for="auction_price" class="form-label">Начальная Цена</label>
+                            </div>
+                            <div class="col-auto">
+                                <input name="auction_price" type="text" class="form-control" id="auction_price">
+                            </div>
+                        </div>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <label for="minimum_step" class="form-label">Минимальный шаг</label>
+                            </div>
+                            <div class="col-auto">
+                                <input name="minimum_step" type="text" class="form-control" id="minimum_step">
+                            </div>
+                        </div>
                         <button class="btn btn-primary">Выставить на аукцион</button>
                     </div>
                 </div>

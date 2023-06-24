@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\OrderCarEvent' => [
             'App\Listeners\OrderActionsListener',
         ],
+        'App\Events\BetOutEvent' =>[
+            'App\Listeners\BetOutListener'
+        ],
     ];
 
     /**

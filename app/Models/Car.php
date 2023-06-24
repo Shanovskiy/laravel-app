@@ -26,6 +26,10 @@ class Car extends Model
 
     public function auctionCars()
     {
-        return $this->hasMany(Auction_Car::class);
+        return $this->hasMany(AuctionCar::class);
+    }
+    public function auctionOrders()
+    {
+        return $this->hasMany(AuctionOrder::class);
     }
 }

@@ -26,7 +26,8 @@ class User extends Authenticatable
         'recovery_pin',
         'balance',
         'image',
-        'role_id'
+        'role_id',
+        'discount'
     ];
 
     /**
@@ -64,5 +65,17 @@ class User extends Authenticatable
     public function favorites()
     {
         return $this->hasMany(User::class);
+    }
+    public function auctionCars()
+    {
+        return $this->hasMany(AuctionCar::class);
+    }
+    public function historyBets()
+    {
+        return $this->hasMany(HistoryBet::class);
+    }
+    public function auctionOrders()
+    {
+        return $this->belongsToMany(AuctionOrder::class,'auction_orders');
     }
 }
