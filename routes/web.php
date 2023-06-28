@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderFeedController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\PromocodeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ReportController;
@@ -92,6 +93,8 @@ Route::middleware('role')->group(function () {
     Route::post("/create-a-lot",[AdminAuctionController::class,"putUpForAuction"])->name("putUpForAuction");
     Route::get("/view-auction",[AdminAuctionController::class,"viewAuction"])->name("view-auction");
     Route::put("/view-auction",[AdminAuctionController::class,"endAuction"])->name("end-auction");
+    Route::get("/promocode",[PromocodeController::class,"promocodeView"])->name("view-promocode");
+    Route::post("/promocode",[PromocodeController::class,"createPromoCode"])->name("create-promocode");
 
 });
 Route::get("/banned",[BannedController::class,"bannedView"])->name("banned");

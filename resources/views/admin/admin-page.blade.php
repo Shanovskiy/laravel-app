@@ -35,6 +35,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route("refund-requests")}}">Возвраты</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route("view-promocode")}}">Промокоды</a>
+                    </li>
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Аукцион
