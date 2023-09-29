@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\AuctionCar;
 use App\Models\AuctionOrder;
 use App\Models\Car;
-use App\Models\Order;
-use App\Models\User;
 
 class AdminAuctionController extends Controller
 {
